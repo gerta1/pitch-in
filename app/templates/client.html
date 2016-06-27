@@ -1,0 +1,72 @@
+<form id="client" method="POST" action="#" onsubmit="clientSubmit(this);">
+  <fieldset>
+        <legend>Basic information</legend>
+        <label>First name: <input type="text" name="firstname" id="firstName" size="20"></label><br />
+        <label>Last name: <input type="text" name="lastname" id="lastName" size="20"></label><br />
+        <label>Mobile phone: <input type="text" name="mobilephone" id="mobilePhone" size="20"></label><br />
+        <label>Address: <input type="text" name="address" id="addressId" size="20"></label><br />
+        <label>Email: <input type="text" name="email" id="email" size="20"></label><br />
+        <label>Description: <br /><textarea name="description" rows="6" cols="10"></textarea>
+      </fieldset>
+       <br />
+      <fieldset>
+        <legend>Technical information</legend>
+        <label>Installation area: <input type="text" name="installationArea" id="installationArea" size="20"></label>
+        <label>Installation detail: <input type="text" name="installationDetail" id="installationDetail" size="20"></label><br />
+        <label>Technology: <select name="technology">
+          <option selected="selected"></option>
+          <option>GPON</option>
+          <option>EPON</option>
+         </select></label>
+        <label>MAC address: <input type="text" name="macAddress" id="macAddress" size="20"></label><br />
+        <label>Device Model: <select name="deviceModel">
+          <option selected="selected"></option>
+          <option>ZTE F-420</option>
+          <option>ZTE F-460</option>
+       </select></label>
+        <label>MAC address (other): <input type="text" name="macAddressOther" id="otherMac" size="20"></label><br/>
+        <label>Device Model (other): <select name="deviceModelOther">
+          <option selected="selected"></option>
+          <option>TP-Link</option>
+          <option>Mikrotik</option>
+        </select></label>
+        <label>Radius password: <input type="text" name="radiusPassword" id="radiusPassword" size="20"></label><br />
+        <label>ONU version<input type="text" name="onuVersion"id="onuVersion" size="20"></label>
+        <label>Connector: <input type="text" name="connector" id="connector" size="20"></label><br />
+        <label>IP address:<select name="ipAddress">
+          <option selected="selected"></option>
+          <option>Static</option>
+          <option>Dynamic</option>
+        </select></label>
+        <label>Static IP Address: <input type="text" name="staticIPAddress" id="staticIP" size="20"></label><br />
+      </fieldset>
+       <br />
+      <fieldset>
+        <legend>Automatic configuration</legend>
+        <label>VLAN: <input type="text" name="vlan" id="vlan" size="20" value="80, 90"></label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>Status</legend>
+        <label>Internet Service Status: <select name="internetStatus">
+          <option selected="selected"></option>
+          <option>passive</option>
+          <option>active</option>
+        </select></label>
+       <label>Physical Installation Status: 
+        <select name="physicalStatus">
+          <option selected="selected"></option>
+          <option>passive</option>
+          <option>active</option>
+        </select><br />
+        <label>Internet Service Activation: <input type="date" name="internetActivation" id="activation"></label>
+        <label>Physical Installation: <input type="date" name="physicalInstallation"></label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>Other</legend>
+        <label>Comments: <br /><textarea name="comments" rows="10" cols="100"></textarea></label>
+      </fieldset>
+      <br>
+      <input type="submit" value="submit">
+</form>

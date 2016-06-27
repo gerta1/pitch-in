@@ -1,0 +1,242 @@
+/*
+    This is the main stylesheet which will hold the majority of the aesthtetic css.
+*/
+
+/* 
+  This fixes a lot of issues with padding with the default box-content model.
+  Also sets the default font to Helvetica for Macs, and Arial for the rest, and falls back to a web-safe generic.
+*/
+*{
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* This forces the content to NOT scroll. It also resets the margin and padding so we get access to the full wdth of the screen. */
+html, body{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Flexbox allows us to vertically align content easily. */
+body{
+  background: tomato;
+  display: flex;
+  padding-top: 50px;
+}
+
+/* Create the top bar and positions it absolutely at the top of the screen. This could just as easily be dislpay: fixed since we 
+  have disabled verticle scrolling, but can cause some fiddling for the content below, so this is just easier. */
+header{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 50px;
+  
+  display: flex;
+  justify-content: space-between;
+  
+  background: whitesmoke;
+  
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.4);
+  
+  color: #333;
+}
+
+/* Some nice Font styling for the title. */
+header .title{
+  padding: 15px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+header .end{
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 11px;
+  border-left: 1px inset rgba(255,255,255,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+#new-user{
+  cursor: pointer;
+}
+#new-user:hover{
+  background: rgba(255,255,255,4);
+}
+
+nav, nav span{
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+nav{
+    position: relative;
+    width: 15%;
+    background: #222;
+    box-shadow: 2px 1px 9px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    text-align: center;
+    color: white;
+}
+
+nav h2{
+  font-weight: 300;
+  background: #333;
+  border-bottom: 1px solid #333;
+  margin:0;
+  padding: 20px 0;
+  font-size: 13px;
+}
+
+nav span{
+  width:100%;
+  height: 50px;
+  border-bottom: 1px solid #333;
+  font-weight: 300;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+nav span:hover{
+  background: #2a2a2a;
+  cursor:pointer;
+}
+
+nav .newBoard{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #333;
+}
+
+/* Set the width to 90% of the body, which is set to 100% of the browser window. This is could also be width 100% with a 10% margin.
+   - text-align: center is a little hack to horizontally center child divs.
+*/
+#main{
+    width: 90%;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#main .category{
+  width: 250px;
+  background: #ccc;
+  margin: 80px 10px 20px 0;
+}
+
+/* The main style for the boxes. This will be reused for the categories, teams, tasks etc. 
+  - display: inline-block is a nicer alternative to float:left, to allow multiple boxes on the same line, instead of each falling onto
+              their own new lines.
+*/
+#main .box{
+  display: inline-block;
+  width: 40%;
+  background: whitesmoke;
+  border-radius: 6px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  padding: 15px;
+  margin: 15px;
+  min-height: 100px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;  
+}
+
+#main .category .box{
+  width: 90%;
+}
+
+/* This changes the background to a darker grey and increases the size of the box shadow while the mouse is hovering over the div.
+    Also sets the mouse cursor to a pointer to let the user know it is a clickable div.
+*/
+#main .box:hover{
+  background: #eee;
+  cursor: pointer;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+#main .box .title{}
+
+/* Make the body text pretty. */
+#main .box .body{
+  color: #666;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+/* Prettify the sub-text */
+#main .box .sub{
+  margin: 5px 0;
+  color: #bbb;
+  font-size: 11px;
+}
+
+#main .addButton, #main .homeButton{
+  position: absolute;
+  padding: 10px 25px;
+  background: whitesmoke;
+  border: 1px solid white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#main .addButton{
+  top: 20px;
+  right: 20px;
+}
+
+
+#main .homeButton{
+    top: 20px;
+    left: 0px;
+}
+
+#client{
+  margin: 20px;
+  padding: 20px;
+  background: whitesmoke;
+  overflow-x: scroll;
+}
+
+.task{
+  padding:20px;
+}
+
+.task *{
+  font-size: 14px;
+}
+
+.task form > label{
+  width:100%;
+}
+.task form > label > input, .task form > label > textarea{
+  width:100%;
+}

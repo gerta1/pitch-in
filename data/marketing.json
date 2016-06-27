@@ -1,0 +1,15 @@
+{ "issues": [
+  {
+    "id": "1",
+    "category": "priority",
+    "name": "Marketing Task 1",
+    "description": "This is a description for a marketing task",
+    "members": {
+      "internal" : [],
+      "external" : ["martha"]
+    },
+    "comments": [],
+    "labels": []
+  }
+]
+}

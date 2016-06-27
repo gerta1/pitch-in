@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title data-template="home">Pitch In</title>
+  <link rel="stylesheet" href="lib/vanillamodal/vanillamodal.css">
+  <link rel="stylesheet" href="lib/vanillatoasts/vanillatoasts.css">
+  <link rel="stylesheet" href="app/styles/main.css">
+</head>
+<body>
+  <header>
+    <span>&nbsp;</span>
+    <span class="title">Pitch In</span>
+    <span id="new-user" class="end" data-template="client">New User</span>
+  </header>
+  
+  <nav>
+    <h2>Boards</h2>
+    <!--<span data-template="home">Home</span>-->
+    <span data-link="marketing" data-template="tasks">General</span>
+    <span>Maintanence</span>
+    <span>Backlog</span>
+    <span class="newBoard">New Board</span>
+  </nav>
+  
+  <div id="main">
+    <!-- Templates Load Into Here -->
+  </div>
+
+  <div id="popup" style="display:none;"></div>
+
+  <div class="modal">
+    <div class="modal-inner">
+      <a rel="modal:close">x</a>
+      <div class="modal-content"></div>
+    </div>
+  </div>
+    
+  <footer>
+    <script src="lib/vanillamodal/vanillamodal.js"></script>
+    <script src="lib/vanillatoasts/vanillatoasts.js"></script>
+    <script src="lib/handlebars.min.js"></script>
+    <script src="app/bootstrap.js" type="text/javascript"></script>
+    <script src="app/functions.js" type="text/javascript"></script>
+    <script src="app/main.js" type="text/javascript"></script>
+  </footer>
+</body>
+</html>

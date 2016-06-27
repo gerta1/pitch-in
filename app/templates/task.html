@@ -1,0 +1,47 @@
+<div class="task">
+  <h1>New Issue</h1>
+  <form method="POST" onsubmit="newIssue(this)">
+    <label>
+      Title
+      <input name="title" type="text">
+    </label>
+    <label>
+      Description
+      <textarea name="description" rows="4"></textarea>
+    </label>
+    <label>
+      Board
+      <select name="board">
+        <option>General</option>
+        <option>Maintanence</option>
+        <option>Backlog</option>
+      </select>
+    </label>
+    <label>
+      Team
+      <select name="team">
+        <option>Sales</option>
+        <option>Marketing</option>
+        <option>Support</option>
+      </select>
+    </label>
+    <label>
+      Category
+      <select name="category">
+        <option>New Issue</option>
+      </select>
+    </label>
+    <label>
+      Labels
+      <input type="text" name="labels">
+    </label>
+    <label>
+      Clients
+      <input type="text" name="clients">
+    </label>
+    <label>
+      Submit
+      <input type="submit">
+    </label>
+  </form>
+</div>

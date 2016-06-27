@@ -1,0 +1,28 @@
+create table client ( 
+	id int unsigned auto_increment primary key,
+	firstname varchar(30) NOT NULL,
+	lastname varchar(30) NOT NULL,
+	mobilephone char(14) NOT NULL,
+	address varchar(50) NOT NULL,
+	email varchar(50),
+	description varchar(200),
+	installationArea int unsigned not null,
+	installationDetail varchar(100) not null,
+	technology varchar(50) not null,
+	macAddress char(19) not null,
+	deviceModel varchar(100) not null,
+	macAddressOther char(19),
+	deviceModelOther varchar(100),
+	radiusPassword char(10) not null,
+	onuVersion varchar(10) not null,
+	connector int unsigned,
+	ipAddress varchar(20) not null,
+	staticIPAddress char(15),
+	vlan varchar(50) default "80, 90,",
+	internetStatus varchar(50) not null,
+	physicalStatus varchar(50) not null,
+	internetActivation date not null, 
+	physicalInstallation date not null,
+	comments varchar(200)
+)
+
