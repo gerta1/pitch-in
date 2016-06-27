@@ -37,8 +37,6 @@ data = typeof(data) !== "undefined" ? JSON.parse(data) : null;
   
   //Get template file.
   get(dir+template+filetype).then(function(template){
-
-    console.log(data);
     //compile html into Handlebars template
     var compile = Handlebars.compile(template);
     //get the data from the data folder
@@ -97,7 +95,6 @@ var loadModal = function(template){
   var filetype = ".html";
   
   get(dir+template+filetype).then(function(data){
-    console.log(data);
     $('#popup').innerHTML = data;
     modal.open('#popup');
   });
@@ -127,7 +124,7 @@ var newIssue = function(form){
 
   var data = new FormData(form);
 
-  post(HOST+'/server/tasks.php', data).then(function(data){
+  post(HOST+'/server/task.php', data).then(function(data){
     console.log(data);
 
     if(data.error){
@@ -145,6 +142,8 @@ var newIssue = function(form){
           timeout: 5000
       });
     }
+
+    modal.close();
   });
   
   return false;

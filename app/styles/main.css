@@ -145,7 +145,13 @@ nav .newBoard{
   background: #ccc;
   margin: 80px 10px 20px 0;
 }
-
+#main .category > .title{
+    background: whitesmoke;
+  border-radius: 6px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  padding: 15px;
+  margin: 15px;
+}
 /* The main style for the boxes. This will be reused for the categories, teams, tasks etc. 
   - display: inline-block is a nicer alternative to float:left, to allow multiple boxes on the same line, instead of each falling onto
               their own new lines.
