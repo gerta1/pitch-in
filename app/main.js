@@ -6,6 +6,15 @@ window.addEventListener("load", function(){
  	$('header .title').addEventListener('click', function(){
    		loadTemplate('home');
  	});
+
+ 	$('.newBoard').addEventListener('click', function(){
+ 		VanillaToasts.create({
+          title: 'Demo',
+          text: 'This is not enabled for the demo',
+          type: 'warning', // success, info, warning, error
+          timeout: 5000
+      	});
+ 	});
   
  	//load the home template in once the page has loaded.
  	loadTemplate('home');
