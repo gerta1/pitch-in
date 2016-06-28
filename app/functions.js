@@ -90,13 +90,28 @@ function setLinks(){
 
 //open a popup window with the specified template
 //The template must be a file name in the /app/tempplates/ directory for now.
-var loadModal = function(template){
+var loadModal = function(template, dataFile){
   var dir = "app/templates/";
   var filetype = ".html";
   
-  get(dir+template+filetype).then(function(data){
-    $('#popup').innerHTML = data;
-    modal.open('#popup');
+  //get template
+  get(dir+template+filetype).then(function(ret){
+
+    if(dataFile){
+      get("/server/"+dataFile).then(function(data){
+        //compile html into Handlebars template
+        var compile = Handlebars.compile(ret);
+        //get the data from the data folder
+        var html = compile(JSON.parse(data));
+
+        $('#popup').innerHTML = html;
+        modal.open('#popup');
+      });
+    } else {
+        var compile = Handlebars.compile(ret);
+        $('#popup').innerHTML = compile();
+        modal.open('#popup');
+    }
   });
 }
 
@@ -144,6 +159,7 @@ var newIssue = function(form){
     }
 
     modal.close();
+    loadTemplate("tasks", data);
   });
   
   return false;

@@ -1,47 +1,62 @@
 <div class="task">
-  <h1>New Issue</h1>
   <form method="POST" onsubmit="newIssue(this)">
-    <label>
+    <h1>
+      {{#if id}}Issue{{else}}New Issue{{/if}} {{id}}
+    </h1>
+    <div class="content">
+      <input type="hidden" name="id" value="{{id}}">
+      <label>
       Title
-      <input name="title" type="text">
-    </label>
+        <input name="title" type="text" value="{{title}}" placeholder="Title">
+      </label>
+      <label>
+        Description
+        <textarea name="description" rows="4">{{description}}</textarea>
+      </label>
+
+      <span class="options">
+        <label>
+          Board
+          <select name="board">
+            <option>General</option>
+            <option>Maintanence</option>
+            <option>Backlog</option>
+          </select>
+        </label>
+        <label>
+          Team
+          <select name="team">
+            <option>Sales</option>
+            <option>Marketing</option>
+            <option>Support</option>
+          </select>
+        </label>
+        <label>
+          Category
+          <select name="category">
+            <option>New Issue</option>
+          </select>
+        </label>
+      </span>
+      <label>
+        Labels
+        <input type="text" name="labels" value="{{labels}}">
+      </label>
+      <label>
+        Clients
+        <input type="text" name="clients" value="{{clients}}">
+      </label>
+    </div>
+    <div class="footer">
     <label>
-      Description
-      <textarea name="description" rows="4"></textarea>
-    </label>
-    <label>
-      Board
-      <select name="board">
-        <option>General</option>
-        <option>Maintanence</option>
-        <option>Backlog</option>
+      <select name="open">
+        <option value="0">Closed</option>
+        <option value="1">Open</option>
       </select>
     </label>
-    <label>
-      Team
-      <select name="team">
-        <option>Sales</option>
-        <option>Marketing</option>
-        <option>Support</option>
-      </select>
-    </label>
-    <label>
-      Category
-      <select name="category">
-        <option>New Issue</option>
-      </select>
-    </label>
-    <label>
-      Labels
-      <input type="text" name="labels">
-    </label>
-    <label>
-      Clients
-      <input type="text" name="clients">
-    </label>
-    <label>
-      Submit
-      <input type="submit">
-    </label>
+      <label>
+        <input type="submit">
+      </label>
+    </div>
   </form>
 </div>

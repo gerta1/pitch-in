@@ -7,6 +7,7 @@ create table tasks (
 	labels varchar(200),
 	users varchar(200),
 	clients varchar(200),
-	createdAt int(12)
+	createdAt int(12),
+	open int(1)
 )
 

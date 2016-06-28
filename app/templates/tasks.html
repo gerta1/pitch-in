@@ -1,24 +1,24 @@
 <div class="homeButton" data-template="home">Home</div>
 <div class="addButton" onclick="loadModal('task')">Add new Issue</div>
 
-{{#each open}}
 <div class="category">
 	<div class="title">Open</div>
-  <div class="box">
-    <p class="title">Task: {{title}}</p>
-    <p class="body">{{description}}</p>
-    <p class="sub">customers: {{clients}}</p>
-  </div>
+  {{#each open}}
+    <div class="box" onclick="loadModal('task', 'getTask.php?id={{id}}');">
+      <p class="title">Task: {{title}}</p>
+      <p class="body">{{description}}</p>
+      <p class="sub">customers: {{clients}}</p>
+    </div>
+  {{/each}}
 </div>
-{{/each}}
 
-{{#each closed}}
 <div class="category">
 	<div class="title">Closed</div>
-  <div class="box">
-    <p class="title">Task: {{title}}</p>
-    <p class="body">{{description}}</p>
-    <p class="sub">customers: {{clients}}</p>
-  </div>
+  {{#each closed}}
+    <div class="box" onclick="loadModal('task', 'getTask.php?id={{id}}');">
+      <p class="title">Task: {{title}}</p>
+      <p class="body">{{description}}</p>
+      <p class="sub">customers: {{clients}}</p>
+    </div>
+  {{/each}}
 </div>
-{{/each}}
