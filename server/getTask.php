@@ -2,6 +2,8 @@
 
 require(__DIR__.'/config.php');
 
+//get a single task
+
 $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
 
 if(!isset($id)){
@@ -9,7 +11,7 @@ if(!isset($id)){
 	exit;
 }
 
-$task = $db->prepare("SELECT * FROM tasks WHERE id = :id");
+$task = $db->prepare("SELECT * FROM tasks WHERE id = :id LIMIT 1");
 
 $task->execute([':id' => $id]);
 

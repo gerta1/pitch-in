@@ -28,7 +28,14 @@ function post(url, data){
 * @data is the name of the json data to pull from the data directory
 */
 function loadTemplate(template, data){
-data = typeof(data) !== "undefined" ? JSON.parse(data) : null;
+if(typeof(data) !== "undefined"){
+  try{
+    data = JSON.parse(data);  
+  } catch(e){
+    data = data;
+  }
+}
+// data = typeof(data) !== "undefined" ? data : null;
 //   data = JSON.parse(data);
   var dir = "app/templates/";
   var filetype = ".html";
@@ -77,9 +84,15 @@ function setLinks(){
     links[i].onclick =  function callback(){
       if(!links[i].dataset.link){
         //no data file
-        loadTemplate(links[i].dataset.template);        
+        loadTemplate(links[i].dataset.template);     
       } else {
-        get("server/"+links[i].dataset.link+".php").then(function(data){
+        var query = (links[i].dataset.label) ? '?'+links[i].dataset.label : '';
+        get("server/"+links[i].dataset.link+".php"+query).then(function(data){
+          View.template = links[i].dataset.template;
+          View.link = links[i].dataset.link;
+          View.label = query;
+          View.data = data;
+          // console.log(data);
           loadTemplate(links[i].dataset.template, data);
         });  
       }
@@ -119,16 +132,18 @@ var clientSubmit = function(form){
   event.preventDefault();
 
   var data = new FormData(form);
-  
-  VanillaToasts.create({
-      title: 'Success',
-      text: 'Client Added Successfully',
-      type: 'success', // success, info, warning, error
-      timeout: 5000 // hide after 5000ms
-  });
 
   post(HOST+'/server/client.php', data).then(function(data){
-    console.log(data);
+    // console.log(data);
+
+    if(!data.error){
+      VanillaToasts.create({
+        title: 'Success',
+        text: 'Client Added Successfully',
+        type: 'success', // success, info, warning, error
+        timeout: 5000 // hide after 5000ms
+      });
+    }
   });
   
   return false;
@@ -137,9 +152,9 @@ var clientSubmit = function(form){
 var newIssue = function(form){
   event.preventDefault();
 
-  var data = new FormData(form);
+  var form = new FormData(form);
 
-  post(HOST+'/server/task.php', data).then(function(data){
+  post(HOST+'/server/task.php', form).then(function(data){
     console.log(data);
 
     if(data.error){
@@ -159,7 +174,10 @@ var newIssue = function(form){
     }
 
     modal.close();
-    loadTemplate("tasks", data);
+      get("server/"+View.template+".php"+View.label).then(function(data){
+        loadTemplate(View.template, data);
+      });  
+    loadTemplate(View.template, View.data);
   });
   
   return false;
