@@ -6,8 +6,8 @@
   {{#each open}}
     <div class="box" onclick="loadModal('task', 'getTask.php?id={{id}}');">
       <p class="title">Task: {{title}}</p>
-      <p class="body">{{description}}</p>
-      <p class="sub">customers: {{clients}}</p>
+      <p class="body">Team: {{team}}</p>
+      <p class="sub">clients: {{clients}}</p>
     </div>
   {{/each}}
 </div>
@@ -17,8 +17,8 @@
   {{#each closed}}
     <div class="box" onclick="loadModal('task', 'getTask.php?id={{id}}');">
       <p class="title">Task: {{title}}</p>
-      <p class="body">{{description}}</p>
-      <p class="sub">customers: {{clients}}</p>
+      <p class="body">Team: {{team}}</p>
+      <p class="sub">clients: {{clients}}</p>
     </div>
   {{/each}}
 </div>
